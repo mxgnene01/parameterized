@@ -427,7 +427,7 @@ class parameterized(object):
             for num, p in enumerate(paramters):
                 name = name_func(f, num, p)
                 frame_locals[name] = cls.param_as_standalone_func(p, f, name)
-                frame_locals[name].__doc__ = doc_func(f, num, p)
+                frame_locals[name].__doc__ = p.args[1]
 
             f.__test__ = False
         return parameterized_expand_wrapper
